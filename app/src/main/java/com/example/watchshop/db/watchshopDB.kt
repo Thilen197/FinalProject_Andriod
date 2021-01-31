@@ -19,7 +19,7 @@ abstract class watchshopDB {
         private fun buildDatabase(context: Context) =
                 Room.databaseBuilder(
                         context.applicationContext,
-                        WatchshopDB::class.java,
+                        watchshopDB::class.java,
                         "Watchshop Database"
                 ).fallbackToDestructiveMigration()
                         .build()
