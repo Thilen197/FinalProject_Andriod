@@ -1,8 +1,13 @@
 package com.example.watchshop
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class splashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -10,7 +15,7 @@ class splashActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash)
         CoroutineScope(Dispatchers.Main).launch {
             delay(1000)
-            startActivity(Intent(this@SplashActivity, loginActivity::class.java))
+            startActivity(Intent(this@splashActivity, loginActivity::class.java))
             finish()
             getSharedPref()
         }

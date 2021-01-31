@@ -1,11 +1,19 @@
 package com.example.watchshop
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import com.example.watchshop.db.watchshopDB
 import com.example.watchshop.entity.User
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Dispatchers.Main
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import java.util.jar.Attributes
 
 class Register : AppCompatActivity() {
     private lateinit var etname: EditText
@@ -28,9 +36,9 @@ class Register : AppCompatActivity() {
                 btnRegister = findViewById(R.id.btnregister)
 
                 btnRegister.setOnClickListener {
-                    val username = etname.text.toString()
-                    val contact = etphone.text.toString()
-                    val email = etusername.text.toString()
+
+                    val phone = etphone.text.toString()
+                    val username = etusername.text.toString()
                     val password = etPassword.text.toString()
                     val confirmPassword = etConpassword.text.toString()
                     if (password != confirmPassword) {
@@ -39,44 +47,18 @@ class Register : AppCompatActivity() {
                         return@setOnClickListener
                     }
                     else {
-                        val user = User(username, phone, email, password)
+                        val user = User( username, password, phone)
                         CoroutineScope(Dispatchers.IO).launch {
                             watchshopDB.getInstance(this@Register).getUserDAO()
-                                    .registerUser(user)
-                            withContext(Main) {​​​​​​​​
-                                startActivity(Intent(this@RegisterActivity, loginActivity::class.java));
-                                Toast.makeText(this@RegisterActivity, "User Registered", Toast.LENGTH_SHORT)
-                                        .show();
-                            }​​​​​​​​
-                        }​​​​​​​​
-                    }​​​​​​​​
-                }​​​​​​​​
-            }​​​​​​​​
-        }​​​​​​​​
-
-        ​[14:36] Aatish Raj Shrestha
-
-
-        class SplashActivity : AppCompatActivity() {​​​​​​​​
-            override fun onCreate(savedInstanceState: Bundle?) {​​​​​​​​
-                super.onCreate(savedInstanceState)
-                setContentView(R.layout.activity_splash)
-                CoroutineScope(Dispatchers.Main).launch {​​​​​​​​
-                    delay(1000)
-                    startActivity(Intent(this@SplashActivity, loginActivity::class.java))
-                    finish()
-                    getSharedPref()
-                }​​​​​​​​
-            }​​​​​​​​
-            private fun getSharedPref() {​​​​​​​​
-                val sharedPref = getSharedPreferences("MyPref", MODE_PRIVATE)
-                val username = sharedPref.getString("username", "")
-                val password = sharedPref.getString("password", "")
-                Toast.makeText(this, "Username : $username and password : $password", Toast.LENGTH_SHORT)
-                        .show()
-            }​​​​​​​​
-        }​​​​​​​​
-
+                                .registerUser(user)
+                            withContext(Main) {
+                                startActivity(Intent(this@Register, loginActivity::class.java));
+                                Toast.makeText(this@Register, "User Registered", Toast.LENGTH_SHORT)
+                                    .show();
+                            }
+                        }
+                    }
+                }
 
     }
 }

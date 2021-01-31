@@ -1,7 +1,11 @@
 package com.example.watchshop.dao
 
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.Query
 import com.example.watchshop.entity.User
 
+@Dao
 interface UserDAO {
 
     @Insert

@@ -9,6 +9,10 @@ import android.widget.TextView
 import android.widget.Toast
 import com.example.watchshop.db.watchshopDB
 import com.example.watchshop.entity.User
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class loginActivity : AppCompatActivity() {
 
@@ -59,7 +63,7 @@ class loginActivity : AppCompatActivity() {
                 startActivity(
                         Intent(
                                 this@loginActivity,
-                                DashboardActivity::class.java
+                                MainActivity::class.java
                         )
                 )
             }

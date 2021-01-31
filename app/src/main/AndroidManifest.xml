@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Watchshop">
-        <activity android:name=".splashActivity"></activity>
+        <activity android:name=".DashboardActivity"></activity>
+        <activity android:name=".splashActivity" />
         <activity android:name=".SplashActivity" />
         <activity android:name=".loginActivity" />
         <activity android:name=".Register" />

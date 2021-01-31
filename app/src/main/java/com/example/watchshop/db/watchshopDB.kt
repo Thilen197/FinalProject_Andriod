@@ -1,9 +1,18 @@
 package com.example.watchshop.db
 
 import android.content.Context
+import androidx.room.Database
+import androidx.room.Room
+import androidx.room.RoomDatabase
 import com.example.watchshop.dao.UserDAO
+import com.example.watchshop.entity.User
 
-abstract class watchshopDB {
+@Database(
+    entities = [(User::class)],
+    version = 2,
+    exportSchema = false
+)
+abstract class watchshopDB : RoomDatabase(){
     abstract fun getUserDAO(): UserDAO
     companion object {
         @Volatile
