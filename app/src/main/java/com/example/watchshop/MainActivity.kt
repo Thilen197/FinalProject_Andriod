@@ -17,17 +17,5 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        etusername = findViewById(R.id.etusername)
-        etpassword = findViewById(R.id.etpassword)
-        btnlogin = findViewById(R.id.btnlogin)
-
-        btnlogin.setOnClickListener {
-            if (etusername.text.toString() == "admin" && etpassword.text.toString() == "admin") {
-                Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show()
-                startActivity(Intent(this,Register::class.java))
-            } else {
-                Toast.makeText(this, "Invalid Input", Toast.LENGTH_SHORT).show()
-            }
-        }
     }
 }
