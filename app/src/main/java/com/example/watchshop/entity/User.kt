@@ -9,4 +9,3 @@ data class User(
     @primarykey(autoGenerate = true)
     var userId: Int = 0
 }
-)
