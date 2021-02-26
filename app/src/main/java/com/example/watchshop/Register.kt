@@ -13,7 +13,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Dispatchers.Main
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import java.util.jar.Attributes
+
 
 class Register : AppCompatActivity() {
     private lateinit var etname: EditText

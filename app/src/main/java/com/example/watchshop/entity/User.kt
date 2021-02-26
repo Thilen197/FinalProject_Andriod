@@ -1,7 +1,8 @@
 package com.example.watchshop.entity
 
+import androidx.room.Entity
 import androidx.room.PrimaryKey
-
+@Entity
 data class User(
 
         var name :String? = null,

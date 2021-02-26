@@ -27,10 +27,6 @@ class loginActivity : AppCompatActivity() {
         username = findViewById(R.id.username)
         password = findViewById(R.id.password)
         login = findViewById(R.id.login)
-        tvRegister = findViewById(R.id.tvregister)
-        tvRegister.setOnClickListener {
-            startActivity(Intent(this@loginActivity, Register::class.java))
-        }
 
         login.setOnClickListener {
             login()
@@ -63,7 +59,7 @@ class loginActivity : AppCompatActivity() {
                 startActivity(
                         Intent(
                                 this@loginActivity,
-                                MainActivity::class.java
+                                DashboardActivity::class.java
                         )
                 )
             }
