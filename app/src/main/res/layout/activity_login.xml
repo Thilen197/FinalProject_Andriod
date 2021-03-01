@@ -57,7 +57,7 @@
 
     <Button
 
-        android:id="@+id/tvregister"
+        android:id="@+id/btncustomerRegistration"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="20dp"
