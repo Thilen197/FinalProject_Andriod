@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.*
+import com.example.watchshop.R
 import com.example.watchshop.api.ServiceBuilder
+import com.example.watchshop.repository.CustomerRepository
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -18,6 +20,7 @@ class loginActivity : AppCompatActivity() {
     private lateinit var password: EditText
     private lateinit var login: Button
     private lateinit var btncustomerRegistration: Button
+    private lateinit var linearlayout:LinearLayout
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,6 +30,7 @@ class loginActivity : AppCompatActivity() {
         username = findViewById(R.id.username)
         password = findViewById(R.id.password)
         login = findViewById(R.id.login)
+        linearlayout = findViewById(R.id.linearlayout)
         btncustomerRegistration = findViewById(R.id.btncustomerRegistration)
         btncustomerRegistration.setOnClickListener {
             startActivity(Intent(this@loginActivity, Register::class.java))
@@ -48,10 +52,11 @@ class loginActivity : AppCompatActivity() {
                 val repository = CustomerRepository()
                 val response = repository.checkCustomer(username, password)
                 if (response.success == true) {
-                    ServiceBuilder.token = "Bearer " + response.token
+                    ServiceBuilder.token = "Bearer " + response.Token
                     startActivity(
                             Intent(
                                     this@loginActivity,
+
                                     DashboardActivity::class.java
                             )
                     )

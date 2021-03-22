@@ -1,10 +1,9 @@
 package com.example.watchshop.response
 
-import com.example.watchshop.entity.User
+import com.example.watchshop.entity.Customer
 
 data class LoginResponse(
-        val Success:Boolean?=null,
-        val Data:User?=null,
-        val Message:String?=null
+        val success:Boolean?=null,
+        val Token:String?=null
 ) {
 }

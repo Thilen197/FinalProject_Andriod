@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -26,7 +27,9 @@
                 <ImageView
                     android:layout_width="130dp"
                     android:layout_height="130dp"
-                    android:src="@drawable/usman"></ImageView>
+                    android:src="@drawable/watch1">
+
+                </ImageView>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -83,8 +86,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:id="@+id/btnprofile"
-                                android:background="@android:color/transparent"
-                                android:onClick="profilebtn"></Button>
+                                android:background="@android:color/transparent"/>
                         </RelativeLayout>
 
                     </androidx.cardview.widget.CardView>
@@ -102,14 +104,14 @@
                                 android:layout_width="80dp"
                                 android:layout_height="80dp"
                                 android:id="@+id/rute"
-                                android:src="@drawable/route"
+                                android:src="@drawable/watch"
                                 android:layout_centerInParent="true">
                             </ImageView>
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:id="@+id/txtrute"
-                                android:text="Rout"
+                                android:text="Watch"
                                 android:textSize="16sp"
                                 android:textStyle="bold"
                                 android:layout_centerInParent="true"
@@ -117,10 +119,11 @@
                                 android:textColor="#000"
                                 android:layout_below="@+id/rute">
                             </TextView>
+
                             <Button
+                                android:id="@+id/btnrout"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:id="@+id/btnrout"
                                 android:background="@android:color/transparent"></Button>
                         </RelativeLayout>
 
@@ -146,14 +149,14 @@
                                 android:layout_width="80dp"
                                 android:layout_height="80dp"
                                 android:id="@+id/history"
-                                android:src="@drawable/history"
+                                android:src="@drawable/mycart"
                                 android:layout_centerInParent="true">
                             </ImageView>
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:id="@+id/txthistory"
-                                android:text="History"
+                                android:text="My Cart"
                                 android:textSize="16sp"
                                 android:textStyle="bold"
                                 android:layout_centerInParent="true"
