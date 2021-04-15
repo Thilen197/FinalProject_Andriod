@@ -7,11 +7,13 @@ interface ProductAPI {
         @Header("Authorization") token : String,
         @Body product : Product
     ) : Response<AddProductResponse>
+
     @POST("/image")
     suspend fun addImage(
         @Header("Authorization") token : String,
         @Body product : Product
     ) : Response<AddProductResponse>
+
     // get all students
     @GET("order/fetch")
     suspend fun getAllProduct(
