@@ -28,23 +28,22 @@ class DashboardActivity : AppCompatActivity() {
         btnfeedback = findViewById(R.id.btnfeedback)
 
         btnwatch.setOnClickListener {
-            val intent = Intent(this, home::class.java)
+            val intent = Intent(this, Viewproduct::class.java)
             startActivity(intent)
         }
         mycart.setOnClickListener {
-            val intent = Intent(this, about::class.java)
+            val intent = Intent(this, Cart::class.java)
             startActivity(intent)
         }
         btnmyprofile.setOnClickListener {
-            val intent = Intent(this, contact::class.java)
+            val intent = Intent(this, profile::class.java)
             startActivity(intent)
         }
         btnfeedback.setOnClickListener {
-            val intent = Intent(this, grid::class.java)
+            val intent = Intent(this, addproduct::class.java)
             startActivity(intent)
         }
 
     }
 
-}
 }

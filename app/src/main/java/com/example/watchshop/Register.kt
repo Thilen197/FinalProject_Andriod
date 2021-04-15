@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 
 import com.example.watchshop.entity.Customer
@@ -23,6 +24,7 @@ class Register : AppCompatActivity() {
     private lateinit var etPassword: EditText
     private lateinit var etConpassword: EditText
     private lateinit var btnRegister: Button
+    private lateinit var txtlogin: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +37,8 @@ class Register : AppCompatActivity() {
         etPassword = findViewById(R.id.etpassword)
         etConpassword = findViewById(R.id.etconpassword)
         btnRegister = findViewById(R.id.btnregister)
+        txtlogin = findViewById(R.id.txtlogin)
+
 
         btnRegister.setOnClickListener {
 
@@ -66,13 +70,14 @@ class Register : AppCompatActivity() {
                             withContext(Dispatchers.Main)
 
                             {
-                                startActivity(Intent(this@Register,loginActivity::class.java));
+                                startActivity(Intent(this@Register, loginActivity::class.java));
                                 Toast.makeText(
                                     this@Register,
                                     "Register Successful",
                                     Toast.LENGTH_SHORT
                                 ).show()
                             }
+
                         }
                     } catch (ex: Exception) {
                         withContext(Main) {
@@ -86,6 +91,10 @@ class Register : AppCompatActivity() {
                 }
             }
 
+        }
+        txtlogin.setOnClickListener {
+            val intent = Intent(this, loginActivity::class.java)
+            startActivity(intent)
         }
     }
 }

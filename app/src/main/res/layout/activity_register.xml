@@ -20,6 +20,7 @@
         android:textStyle="bold"
         android:textColor="#000000"
         android:textSize="45sp" />
+
     <EditText
         android:id="@+id/etusername"
         android:layout_width="match_parent"
@@ -87,6 +88,22 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:text="Register"/>
+
+    <TextView
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:text="Already have a Account ?"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"/>
+
+    <TextView
+        android:id="@+id/txtlogin"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:text="Login"
+        android:textSize="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 
 </LinearLayout>
