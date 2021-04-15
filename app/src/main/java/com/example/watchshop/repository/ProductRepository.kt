@@ -1,9 +1,13 @@
 package com.example.watchshop.repository
 
 import com.example.watchshop.api.MyApiRequest
+import com.example.watchshop.api.ProductAPI
 import com.example.watchshop.api.ServiceBuilder
+import com.example.watchshop.entity.Product
+import com.example.watchshop.response.AddProductResponse
 
-class ProductRepository : MyApiRequest {
+
+class ProductRepository : MyApiRequest() {
 
         private val productAPI =
             ServiceBuilder.buildService(ProductAPI::class.java)
@@ -23,27 +27,8 @@ class ProductRepository : MyApiRequest {
                 )
             }
         }
-        suspend fun getAllProduct(): AllProductResponse {
-            return apiRequest {
-                productAPI.getAllProduct(
-                    ServiceBuilder.token!!
-                )
-            }
-        }
-        suspend fun deleteProduct(id: String): DeleteProductResponse {
-            return apiRequest {
-                productAPI.deleteProduct(
-                    ServiceBuilder.token!!,id
-                )
-            }
-        }
-        suspend fun uploadImage(id: String, body: MultipartBody.Part)
-                : ImageResponse {
-            return apiRequest {
-                productAPI.uploadImage(ServiceBuilder.token!!, id, body)
-            }
+
         }
 
-    }
 
-}
+

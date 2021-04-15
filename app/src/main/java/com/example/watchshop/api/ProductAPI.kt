@@ -1,8 +1,15 @@
 package com.example.watchshop.api
 
+import com.example.watchshop.entity.Product
+import com.example.watchshop.response.AddProductResponse
+import com.example.watchshop.response.ImageResponse
+import okhttp3.MultipartBody
+import retrofit2.Response
+import retrofit2.http.*
+
 interface ProductAPI {
 
-    @POST("order/insert")
+    @POST("/product/insert")
     suspend fun addProduct(
         @Header("Authorization") token : String,
         @Body product : Product
@@ -14,18 +21,7 @@ interface ProductAPI {
         @Body product : Product
     ) : Response<AddProductResponse>
 
-    // get all students
-    @GET("order/fetch")
-    suspend fun getAllProduct(
-        @Header("Authorixation") token : String
-    ) : Response<AllProductResponse>
 
-    //delete student
-    @DELETE("order/delete/{id}")
-    suspend fun deleteProduct(
-        @Header("Authorization") token: String,
-        @Path("id") id: String
-    ):Response<DeleteProductResponse>
 
     @Multipart
     @PUT("student/{id}/photo")
@@ -36,4 +32,3 @@ interface ProductAPI {
     ):Response<ImageResponse>
 }
 
-}
