@@ -2,6 +2,7 @@ package com.example.watchshop.api
 
 import com.example.watchshop.entity.Product
 import com.example.watchshop.response.AddProductResponse
+import com.example.watchshop.response.GetProductResponse
 import com.example.watchshop.response.ImageResponse
 import okhttp3.MultipartBody
 import retrofit2.Response
@@ -17,8 +18,8 @@ interface ProductAPI {
 
     @GET("product/fetch")
     suspend fun getProduct(
-            @Header("Authorization") token: String,
-    ):Response<getproductResponse>
+//            @Header("Authorization") token: String,
+    ):Response<GetProductResponse>
 
     @POST("/image")
     suspend fun addImage(
