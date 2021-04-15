@@ -5,8 +5,8 @@ data class Product(
     val watch_name: String? = null,
     val model : String? = null,
     val price : String? = null,
-    val Description : String? = null,
-    val watch_image : String? = null
+    val Description : String? = null
+//    val watch_image : String? = null
 
 
 

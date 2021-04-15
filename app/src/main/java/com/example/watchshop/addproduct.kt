@@ -86,6 +86,8 @@ class addproduct : AppCompatActivity() {
                     val productRepository = ProductRepository()
                     val response = productRepository.addProduct(product)
 
+
+
                     if (response.success==true) {
 //                        if (imageUrl != null){
 //                            uploadImage(response.data?._id!!.toString())
@@ -104,10 +106,10 @@ class addproduct : AppCompatActivity() {
                 }
                 catch (ex: Exception) {
                     withContext(Dispatchers.Main) {
-                        startActivity(Intent(this@addproduct, DashboardActivity::class.java))
+//                        startActivity(Intent(this@addproduct, Viewproduct::class.java))
                         Toast.makeText(
                                 this@addproduct,
-                                "failed",
+                                "$ex",
                                 Toast.LENGTH_SHORT
                         ).show()
                     }

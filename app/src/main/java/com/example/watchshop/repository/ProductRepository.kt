@@ -16,17 +16,18 @@ class ProductRepository : MyApiRequest() {
         suspend fun addProduct(product: Product): AddProductResponse {
             return apiRequest {
                 productAPI.addProduct(
-                    ServiceBuilder.token!!, product
+//                    ServiceBuilder.token!!,
+                        product
                 )
             }
         }
-        suspend fun addImage(product: Product): AddProductResponse {
-            return apiRequest {
-                productAPI.addProduct(
-                    ServiceBuilder.token!!, product
-                )
-            }
-        }
+//        suspend fun addImage(product: Product): AddProductResponse {
+//            return apiRequest {
+//                productAPI.addProduct(
+//                    ServiceBuilder.token!!, product
+//                )
+//            }
+//        }
 
         }
 
