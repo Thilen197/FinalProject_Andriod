@@ -19,18 +19,62 @@ class addproduct : AppCompatActivity() {
     private lateinit var iccart : ImageView
     private lateinit var icprofile : ImageView
     private lateinit var icwatch : ImageView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_addproduct)
 
 
-        image= findViewById(R.id.image)
+
         etname = findViewById(R.id.etname)
         etprice = findViewById(R.id.etprice)
         etmodel = findViewById(R.id.etmodel)
         etdescription = findViewById(R.id.etdescription)
         btnadd = findViewById(R.id.btnadd)
+        image= findViewById(R.id.image)
 
+        image.setOnClickListener{
+            loadPopUpMenu()
+        }
+
+        btnadd.setOnClickListener {
+            val customername = etname.text.toString()
+            val customeraddress = etmodel.text.toString()
+            val customeremail = etprice.text.toString()
+            val customerbook = etdescription.text.toString()
+
+            val product = Product(Customer_Name = customername, Customer_Address = customeraddress,
+                Customer_Email = customeremail,Customer_Book = customerbook,)
+            CoroutineScope(Dispatchers.IO).launch {
+                try {
+                    val productRepository = ProductRepository()
+                    val response = productRepository.addProduct(product)
+                    if (response.success == true) {
+                        if (imageUrl != null){
+                            uploadImage(response.data!!._id!!)
+                        }
+                        withContext(Dispatchers.Main) {
+                            Toast.makeText(
+                                this@ProductActivity,
+                                "Book Ordered",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                        startActivity(Intent(this@ProductActivity, ViewProduct::class.java));
+                    }
+                } catch (ex: Exception) {
+                    withContext(Dispatchers.Main) {
+                        Toast.makeText(
+                            this@ProductActivity,
+                            ex.toString(),
+                            Toast.LENGTH_SHORT
+                        )
+                            .show()
+                    }
+                }
+            }
+        }
+    }
 
 
 
