@@ -1,3 +1,6 @@
 package com.example.watchshop.response
 
-data class AddProductResponse()
+class AddProductResponse (
+    val success : Boolean?= null,
+
+)
