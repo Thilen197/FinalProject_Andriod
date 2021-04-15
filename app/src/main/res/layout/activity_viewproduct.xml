@@ -21,15 +21,15 @@
 
         android:layout_width="match_parent"
         android:layout_height="470dp"
-        android:orientation="vertical"/>
+        android:orientation="vertical">
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerveiw"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp" />
 
-
-
-
-
-
-
+    </ScrollView>
 
 
     <LinearLayout
