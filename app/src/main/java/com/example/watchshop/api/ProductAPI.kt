@@ -9,7 +9,7 @@ import retrofit2.http.*
 
 interface ProductAPI {
 
-    @POST("/product/insert")
+    @POST("product/insert")
     suspend fun addProduct(
         @Header("Authorization") token : String,
         @Body product : Product

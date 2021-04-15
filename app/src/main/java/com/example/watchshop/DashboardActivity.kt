@@ -25,7 +25,7 @@ class DashboardActivity : AppCompatActivity() {
         btnaddproduct = findViewById(R.id.btnaddproduct)
 
         btnwatch.setOnClickListener {
-            val intent = Intent(this, Viewproduct::class.java)
+            val intent = Intent(this, addproduct::class.java)
             startActivity(intent)
         }
         mycart.setOnClickListener {
