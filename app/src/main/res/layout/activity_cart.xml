@@ -6,11 +6,11 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
-    tools:context=".Viewproduct">
+    tools:context=".Cart">
 
     <TextView
-        android:layout_marginStart="100dp"
-        android:text="VIEW PRODUCT"
+        android:layout_marginStart="120dp"
+        android:text="MY CART"
         android:textStyle="bold"
         android:textSize="30sp"
         android:layout_width="wrap_content"
@@ -22,14 +22,6 @@
         android:layout_width="match_parent"
         android:layout_height="470dp"
         android:orientation="vertical"/>
-
-
-
-
-
-
-
-
 
 
     <LinearLayout

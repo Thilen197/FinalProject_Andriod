@@ -24,7 +24,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Watchshop"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Viewproduct"></activity>
+        <activity android:name=".Cart"></activity>
+        <activity android:name=".Viewproduct" />
         <activity android:name=".addproduct" />
         <activity android:name=".DashboardActivity" />
         <activity android:name=".splashActivity" />
