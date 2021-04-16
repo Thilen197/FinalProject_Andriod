@@ -1,2 +1,3 @@
+include ':watchshopwearos'
 include ':app'
 rootProject.name = "Watchshop"

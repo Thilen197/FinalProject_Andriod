@@ -32,7 +32,6 @@
 
     </ScrollView>
 
-
     <LinearLayout
         android:layout_marginTop="30dp"
         android:orientation="horizontal"
