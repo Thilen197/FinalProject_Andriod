@@ -1,12 +1,15 @@
 package com.example.watchshop
 
+import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.watchshop.Adapter.ProductAdapter
@@ -23,7 +26,8 @@ class Viewproduct : AppCompatActivity() {
     private lateinit var icprofile : ImageView
     private lateinit var icwatch : ImageView
 
-    private lateinit var
+    private lateinit var btnUpdate : ImageButton
+    private lateinit var btnDelete : ImageButton
     private lateinit var recyclerView : RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,7 +37,10 @@ class Viewproduct : AppCompatActivity() {
         iccart = findViewById(R.id.iccart)
         icprofile = findViewById(R.id.icprofile)
         ichome = findViewById(R.id.ichome)
+
+
         recyclerView = findViewById(R.id.recyclerveiw)
+
 
 
         val adapter = ProductAdapter(this, arrayListOf())
@@ -58,6 +65,7 @@ class Viewproduct : AppCompatActivity() {
             val intent = Intent(this, DashboardActivity::class.java)
             startActivity(intent)
         }
+
 
 
 
