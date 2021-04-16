@@ -1,5 +1,6 @@
 package com.example.watchshop.api
 
+import androidx.room.Delete
 import com.example.watchshop.entity.Product
 import com.example.watchshop.response.AddProductResponse
 import com.example.watchshop.response.GetProductResponse
@@ -20,6 +21,14 @@ interface ProductAPI {
     suspend fun getProduct(
 //            @Header("Authorization") token: String,
     ):Response<GetProductResponse>
+
+
+    @GET("/product/delete/:id")
+    suspend fun Deleteproduct(
+//            @Header("Authorization") token: String,
+    ):Response<GetProductResponse>
+
+
 
     @POST("/image")
     suspend fun addImage(
