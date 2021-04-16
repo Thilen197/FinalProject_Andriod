@@ -3,6 +3,7 @@ package com.example.watchshop.api
 import androidx.room.Delete
 import com.example.watchshop.entity.Product
 import com.example.watchshop.response.AddProductResponse
+import com.example.watchshop.response.DeleteProductResponse
 import com.example.watchshop.response.GetProductResponse
 import com.example.watchshop.response.ImageResponse
 import okhttp3.MultipartBody
@@ -22,12 +23,13 @@ interface ProductAPI {
 //            @Header("Authorization") token: String,
     ):Response<GetProductResponse>
 
+//Delete product
 
-    @GET("/product/delete/:id")
-    suspend fun Deleteproduct(
-//            @Header("Authorization") token: String,
-    ):Response<GetProductResponse>
-
+    @DELETE("order/delete/{id}")
+    suspend fun deleteProduct(
+//        @Header("Authorization") token: String,
+        @Path("id") id: String
+    ):Response<DeleteProductResponse>
 
 
     @POST("/image")
