@@ -23,7 +23,7 @@ class Viewproduct : AppCompatActivity() {
     private lateinit var icprofile : ImageView
     private lateinit var icwatch : ImageView
 
-
+    private lateinit var
     private lateinit var recyclerView : RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {

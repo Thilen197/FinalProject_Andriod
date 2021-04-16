@@ -25,9 +25,9 @@ interface ProductAPI {
 
 //Delete product
 
-    @DELETE("order/delete/{id}")
-    suspend fun deleteProduct(
-//        @Header("Authorization") token: String,
+    @DELETE("product/delete/{id}")
+    suspend fun deleteproduct(
+        @Header("Authorization") token: String,
         @Path("id") id: String
     ):Response<DeleteProductResponse>
 
