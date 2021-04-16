@@ -19,14 +19,14 @@ class profile : AppCompatActivity() {
         icprofile = findViewById(R.id.icprofile)
         ichome = findViewById(R.id.ichome)
 
-        icwatch.setOnClickListener {
-            val intent = Intent(this, Viewproduct::class.java)
-            startActivity(intent)
-        }
-        iccart.setOnClickListener {
-            val intent = Intent(this, Cart::class.java)
-            startActivity(intent)
-        }
+//        icwatch.setOnClickListener {
+//            val intent = Intent(this, Viewproduct::class.java)
+//            startActivity(intent)
+//        }
+//        iccart.setOnClickListener {
+//            val intent = Intent(this, Cart::class.java)
+//            startActivity(intent)
+//        }
         icprofile.setOnClickListener {
             val intent = Intent(this, profile::class.java)
             startActivity(intent)

@@ -28,10 +28,10 @@ class DashboardActivity : AppCompatActivity() {
             val intent = Intent(this, addproduct::class.java)
             startActivity(intent)
         }
-        mycart.setOnClickListener {
-            val intent = Intent(this, Cart::class.java)
-            startActivity(intent)
-        }
+//        mycart.setOnClickListener {
+//            val intent = Intent(this, Cart::class.java)
+//            startActivity(intent)
+//        }
         btnprofile.setOnClickListener {
             val intent = Intent(this, profile::class.java)
             startActivity(intent)
