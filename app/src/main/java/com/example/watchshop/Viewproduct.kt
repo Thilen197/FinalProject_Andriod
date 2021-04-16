@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.watchshop.Adapter.ProductAdapter
 import com.example.watchshop.entity.Product
+import com.example.watchshop.repository.ProductRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -24,10 +25,6 @@ class Viewproduct : AppCompatActivity() {
 
 
     private lateinit var recyclerView : RecyclerView
-
-
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -68,16 +65,13 @@ class Viewproduct : AppCompatActivity() {
     }
 
     private fun fetchProducts() {
-        CoroutineScope(Dispatchers.IO).launch {
-//            val lstProduct =
-//                    watchshopDB.WmInstance(this@Viewproduct)
-//                            .getUserDao().viewProduct()
-
-
-//            withContext(Dispatchers.Main){
-//                recyclerView.adapter = ProductAdapter(this@Viewproduct,lstProduct as ArrayList<Product>)
-//                recyclerView.layoutManager = LinearLayoutManager(this@Viewproduct)
-
+        val productRepository = ProductRepository()
+        CoroutineScope(Dispatchers.IO).launch{
+            val productResponse =productRepository.viewProduct()
+            withContext(Dispatchers.Main){
+                val adapter = ProductAdapter(this@Viewproduct,productResponse.productdata!! as ArrayList<Product>)
+                recyclerView.adapter = adapter
             }
         }
+    }
     }

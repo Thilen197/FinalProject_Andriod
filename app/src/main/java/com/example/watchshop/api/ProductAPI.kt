@@ -16,7 +16,7 @@ interface ProductAPI {
         @Body product : Product
     ) : Response<AddProductResponse>
 
-    @GET("product/fetch")
+    @GET("product/fetchall")
     suspend fun getProduct(
 //            @Header("Authorization") token: String,
     ):Response<GetProductResponse>
