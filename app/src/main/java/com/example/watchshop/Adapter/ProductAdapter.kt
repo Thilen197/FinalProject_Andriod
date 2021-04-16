@@ -1,5 +1,6 @@
 package com.example.watchshop.Adapter
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.Glide.init
 import com.example.watchshop.R
+import com.example.watchshop.UpdateProductActivity
 import com.example.watchshop.api.ServiceBuilder
 import com.example.watchshop.entity.Product
 import com.example.watchshop.repository.ProductRepository
@@ -105,6 +107,14 @@ class ProductAdapter (
         }
 
         holder.btnUpdate.setOnClickListener{
+
+            val intent = Intent(context, UpdateProductActivity::class.java)
+            intent.putExtra("id",product._id)
+            intent.putExtra("watch_name",product.watch_name)
+            intent.putExtra("price",product.price)
+            intent.putExtra("model",product.model)
+            intent.putExtra("Description",product.Description)
+            context.startActivity(intent);
 
         }
     }
