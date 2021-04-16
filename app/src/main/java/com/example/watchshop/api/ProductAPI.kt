@@ -38,6 +38,12 @@ interface ProductAPI {
         @Body product : Product
     ) : Response<AddProductResponse>
 
+    @POST("product_update/{id}")
+    suspend fun updateproduct(
+        @Path ("id")id: String,
+        @Body product : Product
+    ) : Response<DeleteProductResponse>
+
 
 
     @Multipart

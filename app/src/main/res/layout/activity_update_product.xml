@@ -113,6 +113,13 @@
 
         </LinearLayout>
 
+ <Button
+     android:id="@+id/btnupdateproduct"
+     android:textColor="@color/black"
+     android:textSize="20sp"
+     android:hint="UPdate"
+     android:layout_width="200dp"
+     android:layout_height="90dp"/>
 
     </LinearLayout>
 </LinearLayout>

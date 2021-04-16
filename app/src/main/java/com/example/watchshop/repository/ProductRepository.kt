@@ -7,6 +7,7 @@ import com.example.watchshop.entity.Product
 import com.example.watchshop.response.AddProductResponse
 import com.example.watchshop.response.DeleteProductResponse
 import com.example.watchshop.response.GetProductResponse
+import retrofit2.http.POST
 import java.nio.file.Files.delete
 
 
@@ -36,6 +37,14 @@ class ProductRepository : MyApiRequest() {
         return apiRequest {
             productAPI.deleteproduct(
                 ServiceBuilder.token!!, id
+            )
+        }
+    }
+
+    suspend fun updateproduct(id: String,body:Product): DeleteProductResponse {
+        return apiRequest {
+            productAPI.updateproduct(
+                 id,body
             )
         }
     }
