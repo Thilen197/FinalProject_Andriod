@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -33,6 +34,7 @@ class ProductAdapter(
         val tvprice: TextView
         val btnDelete: ImageButton
         val btnUpdate: ImageButton
+        val ivimage : ImageView
 
         init {
 
@@ -42,6 +44,7 @@ class ProductAdapter(
             tvmodel = view.findViewById(R.id.tvmodel)
             btnDelete = view.findViewById(R.id.btnDelete)
             btnUpdate = view.findViewById(R.id.btnUpdate)
+            ivimage = view.findViewById(R.id.ivimage)
 
         }
     }
@@ -60,6 +63,8 @@ class ProductAdapter(
         holder.tvmodel.text = product.model.toString()
         holder.tvprice.text = product.price.toString()
         holder.tvdescription.text = product.Description.toString()
+
+
         holder.btnDelete.setOnClickListener {
             val builder = AlertDialog.Builder(context)
             builder.setTitle("Delete product")
@@ -111,6 +116,7 @@ class ProductAdapter(
             intent.putExtra("price", product.price)
             intent.putExtra("model", product.model)
             intent.putExtra("Description", product.Description)
+            intent.putExtra("watch_image",product.watch_image)
             context.startActivity(intent);
 
         }

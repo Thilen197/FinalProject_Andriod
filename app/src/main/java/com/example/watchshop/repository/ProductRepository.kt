@@ -7,6 +7,8 @@ import com.example.watchshop.entity.Product
 import com.example.watchshop.response.AddProductResponse
 import com.example.watchshop.response.DeleteProductResponse
 import com.example.watchshop.response.GetProductResponse
+import com.example.watchshop.response.ImageResponse
+import okhttp3.MultipartBody
 import retrofit2.http.POST
 import java.nio.file.Files.delete
 
@@ -14,14 +16,14 @@ import java.nio.file.Files.delete
 class ProductRepository : MyApiRequest() {
 
     private val productAPI =
-        ServiceBuilder.buildService(ProductAPI::class.java)
+            ServiceBuilder.buildService(ProductAPI::class.java)
 
     //Add Student
     suspend fun addProduct(product: Product): AddProductResponse {
         return apiRequest {
             productAPI.addProduct(
 //                    ServiceBuilder.token!!,
-                product
+                    product
             )
         }
     }
@@ -36,27 +38,28 @@ class ProductRepository : MyApiRequest() {
     suspend fun deleteproduct(id: String): DeleteProductResponse {
         return apiRequest {
             productAPI.deleteproduct(
-                ServiceBuilder.token!!, id
+                    ServiceBuilder.token!!, id
             )
         }
     }
 
-    suspend fun updateproduct(id: String,product:Product): DeleteProductResponse {
+    suspend fun updateproduct(id: String, product: Product): DeleteProductResponse {
         return apiRequest {
             productAPI.updateproduct(
-                 id,product
+                    id, product
+            )
+        }
+    }
+
+    suspend fun addProductImage(id: String, body: MultipartBody.Part): ImageResponse {
+        return apiRequest {
+            productAPI.addImage(
+                    ServiceBuilder.token!!, id, body
             )
         }
     }
 }
 
-//        suspend fun addImage(product: Product): AddProductResponse {
-//            return apiRequest {
-//                productAPI.addProduct(
-//                    ServiceBuilder.token!!, product
-//                )
-//            }
-//        }
 
 
 

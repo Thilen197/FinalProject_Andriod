@@ -32,17 +32,22 @@ interface ProductAPI {
     ):Response<DeleteProductResponse>
 
 
-    @POST("/image/{id}")
+    @Multipart
+    @POST("image/{id}")
     suspend fun addImage(
         @Header("Authorization") token : String,
-        @Body product : Product
-    ) : Response<AddProductResponse>
+        @Path ("id") id:String,
+        @Part file: MultipartBody.Part
+    ) : Response<ImageResponse>
+
+
 
     @PUT("product_update/{id}")
     suspend fun updateproduct(
         @Path ("id")id: String,
         @Body product : Product
     ) : Response<DeleteProductResponse>
+
 
 
 
