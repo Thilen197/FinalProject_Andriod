@@ -14,6 +14,8 @@ class profile : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
 
+        supportActionBar?.setTitle("Profile")
+
         icwatch = findViewById(R.id.icwatch)
         iccart = findViewById(R.id.iccart)
         icprofile = findViewById(R.id.icprofile)

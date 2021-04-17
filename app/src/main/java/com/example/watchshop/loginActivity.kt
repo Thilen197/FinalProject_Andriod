@@ -19,13 +19,15 @@ class loginActivity : AppCompatActivity() {
     private lateinit var username: EditText
     private lateinit var password: EditText
     private lateinit var login: Button
-    private lateinit var btncustomerRegistration: Button
+    private lateinit var btncustomerRegistration: View
     private lateinit var linearlayout:LinearLayout
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+        supportActionBar?.setTitle("Login")
 
         username = findViewById(R.id.username)
         password = findViewById(R.id.password)

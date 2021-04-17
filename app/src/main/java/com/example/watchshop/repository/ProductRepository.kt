@@ -41,10 +41,10 @@ class ProductRepository : MyApiRequest() {
         }
     }
 
-    suspend fun updateproduct(id: String,body:Product): DeleteProductResponse {
+    suspend fun updateproduct(id: String,product:Product): DeleteProductResponse {
         return apiRequest {
             productAPI.updateproduct(
-                 id,body
+                 id,product
             )
         }
     }

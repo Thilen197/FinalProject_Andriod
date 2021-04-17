@@ -1,13 +1,12 @@
 package com.example.watchshop
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
-
+import androidx.appcompat.app.AppCompatActivity
 import com.example.watchshop.entity.Customer
 import com.example.watchshop.repository.CustomerRepository
 import kotlinx.coroutines.CoroutineScope
@@ -24,11 +23,13 @@ class Register : AppCompatActivity() {
     private lateinit var etPassword: EditText
     private lateinit var etConpassword: EditText
     private lateinit var btnRegister: Button
-    private lateinit var txtlogin: TextView
+    private lateinit var viewLogin: View
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
+
+        supportActionBar?.setTitle("Register")
 
 
         etemail = findViewById(R.id.etemail)
@@ -37,7 +38,7 @@ class Register : AppCompatActivity() {
         etPassword = findViewById(R.id.etpassword)
         etConpassword = findViewById(R.id.etconpassword)
         btnRegister = findViewById(R.id.btnregister)
-        txtlogin = findViewById(R.id.txtlogin)
+        viewLogin = findViewById(R.id.viewLogin)
 
 
         btnRegister.setOnClickListener {
@@ -56,10 +57,10 @@ class Register : AppCompatActivity() {
                 return@setOnClickListener
             } else {
                 val customer = Customer(
-                    username = username,
-                    email = email,
-                    mobile = mobile,
-                    password = password
+                        username = username,
+                        email = email,
+                        mobile = mobile,
+                        password = password
                 )
 
                 CoroutineScope(Dispatchers.IO).launch {
@@ -72,9 +73,9 @@ class Register : AppCompatActivity() {
                             {
                                 startActivity(Intent(this@Register, loginActivity::class.java));
                                 Toast.makeText(
-                                    this@Register,
-                                    "Register Successful",
-                                    Toast.LENGTH_SHORT
+                                        this@Register,
+                                        "Register Successful",
+                                        Toast.LENGTH_SHORT
                                 ).show()
                             }
 
@@ -82,9 +83,9 @@ class Register : AppCompatActivity() {
                     } catch (ex: Exception) {
                         withContext(Main) {
                             Toast.makeText(
-                                this@Register,
-                                "User ALready Exist",
-                                Toast.LENGTH_SHORT
+                                    this@Register,
+                                    "User ALready Exist",
+                                    Toast.LENGTH_SHORT
                             ).show()
                         }
                     }
@@ -92,7 +93,7 @@ class Register : AppCompatActivity() {
             }
 
         }
-        txtlogin.setOnClickListener {
+        viewLogin.setOnClickListener {
             val intent = Intent(this, loginActivity::class.java)
             startActivity(intent)
         }

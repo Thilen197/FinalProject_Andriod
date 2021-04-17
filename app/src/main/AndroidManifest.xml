@@ -24,21 +24,28 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Watchshop"
         android:usesCleartextTraffic="true">
-        <activity android:name=".UpdateProductActivity"></activity>
+        <activity android:name=".UpdateProductActivity" />
         <activity android:name=".profile" />
         <activity android:name=".Cart" />
         <activity android:name=".Viewproduct" />
         <activity android:name=".addproduct" />
-        <activity android:name=".DashboardActivity" />
-        <activity android:name=".splashActivity" />
-        <activity android:name=".loginActivity">
+        <activity
+            android:name=".DashboardActivity"
+            android:theme="@style/Theme.Login" />
+        <activity android:name=".loginActivity"
+            android:theme="@style/Theme.Login"/>
+        <activity
+            android:name=".splashActivity"
+            android:theme="@style/Theme.Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Register" />
+        <activity
+            android:name=".Register"
+            android:theme="@style/Theme.Login" />
         <activity android:name=".MainActivity" />
     </application>
 

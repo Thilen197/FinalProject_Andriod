@@ -34,6 +34,9 @@ class addproduct : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_addproduct)
 
+        supportActionBar?.setTitle("Add Product")
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         icwatch = findViewById(R.id.icwatch)
         iccart = findViewById(R.id.iccart)
         icprofile = findViewById(R.id.icprofile)

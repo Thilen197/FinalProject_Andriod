@@ -13,6 +13,9 @@ class splashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
+
+        supportActionBar?.setTitle("Splash")
+
         CoroutineScope(Dispatchers.Main).launch {
             delay(1000)
             startActivity(Intent(this@splashActivity, loginActivity::class.java))

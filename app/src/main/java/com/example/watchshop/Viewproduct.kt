@@ -41,6 +41,7 @@ class Viewproduct : AppCompatActivity() {
 
         recyclerView = findViewById(R.id.recyclerveiw)
 
+        supportActionBar?.setTitle("View Product")
 
 
         val adapter = ProductAdapter(this, arrayListOf())
@@ -65,8 +66,6 @@ class Viewproduct : AppCompatActivity() {
             val intent = Intent(this, DashboardActivity::class.java)
             startActivity(intent)
         }
-
-
 
 
 

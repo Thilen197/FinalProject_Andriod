@@ -26,14 +26,15 @@ class UpdateProductActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_update_product)
 
+        supportActionBar?.setTitle("Update Profile")
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
 
         etname = findViewById(R.id.etname)
         etprice = findViewById(R.id.etprice)
         etmodel = findViewById(R.id.etmodel)
         etdescription = findViewById(R.id.etdescription)
         btnupdateproduct= findViewById(R.id.btnupdateproduct)
-
-
 
         btnupdateproduct.setOnClickListener{
             updateproduct()
