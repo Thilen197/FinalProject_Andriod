@@ -1,14 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.wear.widget.BoxInsetLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/box_inset_layout_padding"
+    android:orientation="vertical"
+    android:gravity="center"
     tools:context="WearOS.WearLoginActivity"
     tools:deviceIds="wear">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="WatchShop"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:textColor="@color/teal_700"/>
+    <EditText
+        android:id="@+id/wusername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:gravity="center"
+        android:layout_marginRight="15dp"
+        android:hint="Username"
+        />
+    <EditText
+        android:id="@+id/wpassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:gravity="center"
+        android:layout_marginRight="15dp"
+        android:hint="Password"
+        android:inputType="textPassword" />
 
-</androidx.wear.widget.BoxInsetLayout>
+    <Button
+        android:id="@+id/wlogin"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_marginTop="15dp"
+        android:background="#FFBB86FC"
+        android:text="Login"
+        android:textColor="@color/white"
+        android:textSize="14sp" />
+
+
+</LinearLayout>
