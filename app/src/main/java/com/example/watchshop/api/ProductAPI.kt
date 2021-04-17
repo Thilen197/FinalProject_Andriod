@@ -32,7 +32,7 @@ interface ProductAPI {
     ):Response<DeleteProductResponse>
 
 
-    @POST("/image")
+    @POST("/image/{id}")
     suspend fun addImage(
         @Header("Authorization") token : String,
         @Body product : Product
