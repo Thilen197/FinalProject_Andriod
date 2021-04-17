@@ -17,7 +17,7 @@
         android:layout_marginBottom="20dp"
         android:text="Login"
         android:textColor="#000000"
-        android:textSize="20sp"
+        android:textSize="30sp"
         android:textStyle="bold" />
 
     <androidx.cardview.widget.CardView
@@ -39,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:text="Username"
                 android:textColor="@color/black"
-                android:textSize="12sp" />
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/username"
@@ -51,7 +51,7 @@
                 android:paddingLeft="8dp"
                 android:textColor="@color/black"
                 android:textColorHint="#bbb"
-                android:textSize="12sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -59,7 +59,7 @@
                 android:layout_marginTop="10dp"
                 android:text="Password"
                 android:textColor="@color/black"
-                android:textSize="12sp" />
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/password"
@@ -72,7 +72,7 @@
                 android:paddingLeft="8dp"
                 android:textColor="@color/black"
                 android:textColorHint="#bbb"
-                android:textSize="12sp" />
+                android:textSize="18sp" />
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
@@ -84,7 +84,7 @@
         android:layout_marginTop="20dp"
         android:background="@drawable/drawable_button"
         android:text="Login"
-        android:textSize="12sp" />
+        android:textSize="18sp" />
 
     <LinearLayout
         android:id="@+id/btncustomerRegistration"
@@ -99,7 +99,7 @@
             android:layout_height="wrap_content"
             android:text="Don't have account ?"
             android:textColor="@color/black"
-            android:textSize="12sp" />
+            android:textSize="20sp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -107,7 +107,7 @@
             android:layout_marginLeft="4dp"
             android:text="Register Here."
             android:textColor="@color/colorPrimary"
-            android:textSize="12sp" />
+            android:textSize="16sp" />
     </LinearLayout>
 
 </LinearLayout>

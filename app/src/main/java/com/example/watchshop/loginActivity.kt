@@ -23,6 +23,15 @@ class loginActivity : AppCompatActivity() {
     private lateinit var linearlayout:LinearLayout
 
 
+    companion object {
+        var customerid: String = "";
+        var customerusername: String = "";
+        var customeremail: String = "";
+        var customerphone: String = "";
+
+    }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -54,7 +63,15 @@ class loginActivity : AppCompatActivity() {
                 val repository = CustomerRepository()
                 val response = repository.checkCustomer(username, password)
                 if (response.success == true) {
+
                     ServiceBuilder.token = "Bearer " + response.Token
+
+                    customerid = response.data?._id.toString();
+                    customerusername=response.data?.username.toString();
+                    customeremail = response.data?.email.toString();
+                    customerphone= response.data?.mobile.toString();
+
+
                     startActivity(
                             Intent(
                                     this@loginActivity,
