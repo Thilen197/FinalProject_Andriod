@@ -12,7 +12,7 @@
         android:layout_marginStart="120dp"
         android:text="MY CART"
         android:textStyle="bold"
-        android:textSize="30sp"
+        android:textSize="31sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
