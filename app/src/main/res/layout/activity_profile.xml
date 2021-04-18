@@ -95,6 +95,15 @@
             android:textColorHint="#bbb"
             android:textSize="20sp" />
 
+        <TextView
+            android:id="@+id/logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/drawable_textview"
+            android:text="Log out"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
 
     </LinearLayout>
 
