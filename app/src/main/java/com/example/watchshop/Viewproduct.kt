@@ -76,6 +76,7 @@ class Viewproduct : AppCompatActivity() {
         CoroutineScope(Dispatchers.IO).launch{
             val productResponse =productRepository.viewProduct()
             withContext(Dispatchers.Main){
+                Toast.makeText(this@Viewproduct, "${productResponse.productdata}", Toast.LENGTH_SHORT).show()
                 val adapter = ProductAdapter(this@Viewproduct,productResponse.productdata!! as ArrayList<Product>)
                 recyclerView.adapter = adapter
             }

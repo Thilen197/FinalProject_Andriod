@@ -61,8 +61,8 @@ class UpdateProfileActivity : AppCompatActivity() {
         )
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                val productRepository = CustomerRepository()
-                val response = productRepository.viewprofile(id, customer)
+                val CustomerRepositoryRepository = CustomerRepository()
+                val response = CustomerRepository.viewprofile(id, customer)
                 if (response.success == true) {
                     withContext(Dispatchers.Main) {
 

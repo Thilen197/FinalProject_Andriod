@@ -1,10 +1,13 @@
 package com.example.watchshop
 
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.*
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import com.example.watchshop.R
 import com.example.watchshop.api.ServiceBuilder
 import com.example.watchshop.repository.CustomerRepository
@@ -50,9 +53,44 @@ class loginActivity : AppCompatActivity() {
 
 
         login.setOnClickListener {
-            login()
+            if (validateInput()) {
+                login()
+                showHighPriorityNotification()
+            }
+
+            }
         }
+
+
+    private fun validateInput(): Boolean {
+        if (username.text.toString() == "") {
+            username.error = "Please Enter Username"
+            return false
+        }
+        if (password.text.toString() == "") {
+            if (password.text.toString() == "") {
+                password.error = "Please Enter Password"
+                return false
+            }
+
+        }
+        return true
+
     }
+
+    private fun showHighPriorityNotification() {
+        val notificationManager = NotificationManagerCompat.from(this)
+        val notificationChannels = NotificationChannel(this)
+        notificationChannels.createNotificationChannels()
+        val notification = NotificationCompat.Builder(this, notificationChannels.CHANNEL_1)
+                .setSmallIcon(R.drawable.notification)
+                .setContentTitle("Notification")
+                .setContentText("You're logged in successfully ")
+                .setColor(Color.BLUE)
+                .build()
+        notificationManager.notify(1, notification)
+    }
+    
 
     private fun login() {
         val username = username.text.toString()

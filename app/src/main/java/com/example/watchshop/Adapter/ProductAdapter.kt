@@ -65,6 +65,7 @@ class ProductAdapter(
         holder.tvmodel.text = product.model.toString()
         holder.tvprice.text = product.price.toString()
         holder.tvdescription.text = product.Description.toString()
+
         product.watch_image?.let { img ->
             Glide.with(context)
                     .load(ServiceBuilder.loadImagePath() + img.split("\\").last())
