@@ -38,6 +38,7 @@ class ProductAdapter(
         val btnUpdate: ImageButton
         val ivimage : ImageView
 
+
         init {
 
             tvname = view.findViewById(R.id.tvname)
@@ -122,7 +123,7 @@ class ProductAdapter(
             intent.putExtra("price", product.price)
             intent.putExtra("model", product.model)
             intent.putExtra("Description", product.Description)
-            intent.putExtra("watch_image",product.watch_image)
+            intent.putExtra("watch_image", product.watch_image)
             context.startActivity(intent);
 
         }

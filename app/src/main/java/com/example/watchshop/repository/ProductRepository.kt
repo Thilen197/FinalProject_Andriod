@@ -18,7 +18,7 @@ class ProductRepository : MyApiRequest() {
     private val productAPI =
             ServiceBuilder.buildService(ProductAPI::class.java)
 
-    //Add Student
+    //Add product
     suspend fun addProduct(product: Product): AddProductResponse {
         return apiRequest {
             productAPI.addProduct(

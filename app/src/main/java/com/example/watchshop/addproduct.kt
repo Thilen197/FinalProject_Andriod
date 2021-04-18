@@ -98,7 +98,7 @@ class addproduct : AppCompatActivity() {
             val product = Product(
                     watch_name = Name, model = model,
                     price = price, Description = description
-//                    , watch_image = watch_image
+//                    , watch_image = image
             )
             CoroutineScope(Dispatchers.IO).launch {
                 try {
@@ -215,7 +215,7 @@ class addproduct : AppCompatActivity() {
             file.createNewFile()
             //Convert bitmap to byte array
             val bos = ByteArrayOutputStream()
-            bitmap.compress(Bitmap.CompressFormat.PNG, 0, bos) // YOU can also save it in JPEG
+            bitmap.compress(Bitmap.CompressFormat.PNG,0, bos) // YOU can also save it in JPEG
             val bitMapData = bos.toByteArray()
             //write the bytes in file
             val fos = FileOutputStream(file)

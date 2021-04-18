@@ -9,9 +9,9 @@
     tools:context=".splashActivity">
 
     <ImageView
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:src="@drawable/ic_add_picture" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/watch2" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -19,7 +19,7 @@
         android:layout_marginTop="8dp"
         android:text="Watch Shop"
         android:textColor="@color/white"
-        android:textSize="18sp"
+        android:textSize="40sp"
         android:textStyle="bold" />
 
     <TextView
@@ -28,11 +28,11 @@
         android:layout_marginTop="3dp"
         android:text="Version 1.0"
         android:textColor="@color/white"
-        android:textSize="13sp" />
+        android:textSize="20sp" />
 
     <ProgressBar
         android:id="@+id/progress"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_marginTop="20dp" />
 </LinearLayout>

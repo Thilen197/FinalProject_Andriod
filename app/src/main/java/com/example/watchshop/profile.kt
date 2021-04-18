@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 
 class profile : AppCompatActivity() {
     private lateinit var ichome: ImageView
@@ -15,7 +16,8 @@ class profile : AppCompatActivity() {
     private lateinit var tvcustomerusername: TextView
     private lateinit var tvcustomeremail: TextView
     private lateinit var tvcustomerphone: TextView
-    private lateinit var tvprofile :TextView
+    private lateinit var tvprofile: TextView
+    private lateinit var logout: TextView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,6 +41,12 @@ class profile : AppCompatActivity() {
         iccart = findViewById(R.id.iccart)
         icprofile = findViewById(R.id.icprofile)
         ichome = findViewById(R.id.ichome)
+        logout = findViewById(R.id.logout)
+
+
+        logout.setOnClickListener {
+            logout()
+        }
 
 
         tvprofile.setOnClickListener {
@@ -55,14 +63,25 @@ class profile : AppCompatActivity() {
             val intent = Intent(this, Cart::class.java)
             startActivity(intent)
         }
-            icprofile.setOnClickListener {
-                val intent = Intent(this, profile::class.java)
-                startActivity(intent)
-            }
-            ichome.setOnClickListener {
-                val intent = Intent(this, DashboardActivity::class.java)
-                startActivity(intent)
-            }
-
+        icprofile.setOnClickListener {
+            val intent = Intent(this, profile::class.java)
+            startActivity(intent)
         }
+        ichome.setOnClickListener {
+            val intent = Intent(this, DashboardActivity::class.java)
+            startActivity(intent)
+        }
+
+
     }
+
+    fun logout() {
+        getSharedPreferences("MyPref", MODE_PRIVATE)?.edit()?.clear()?.apply()
+        val intent = Intent(this, loginActivity::class.java)
+        startActivity(intent)
+        Toast.makeText(
+                this,
+                "Logout Successfully", Toast.LENGTH_SHORT
+        ).show()
+    }
+}
