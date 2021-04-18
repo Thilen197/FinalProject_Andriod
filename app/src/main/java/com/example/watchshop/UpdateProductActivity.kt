@@ -1,8 +1,16 @@
 package com.example.watchshop
 
+import android.content.Context
 import android.content.Intent
+import android.hardware.Sensor
+import android.hardware.SensorEvent
+import android.hardware.SensorEventListener
+import android.hardware.SensorManager
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.VibrationEffect
+import android.os.Vibrator
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -14,13 +22,15 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class UpdateProductActivity : AppCompatActivity() {
+class UpdateProductActivity : AppCompatActivity() , SensorEventListener {
     private lateinit var etname : EditText
     private lateinit var etprice : EditText
     private lateinit var etmodel : EditText
     private lateinit var etdescription : EditText
     private lateinit var btnupdateproduct:Button
     var id=""
+    private lateinit var sensorManager: SensorManager
+    private var sensor: Sensor? =null;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +48,17 @@ class UpdateProductActivity : AppCompatActivity() {
 
         btnupdateproduct.setOnClickListener{
             updateproduct()
+        }
+        sensorManager = getSystemService(SENSOR_SERVICE) as SensorManager;
+        if (!checkSensor()) {
+            return
+        } else {
+            sensor = sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
+            sensorManager.registerListener(
+                    this@UpdateProductActivity,
+                    sensor,
+                    SensorManager.SENSOR_DELAY_NORMAL
+            );
         }
 
         val intent = intent
@@ -95,4 +116,36 @@ class UpdateProductActivity : AppCompatActivity() {
         }
 
 
+    private fun checkSensor(): Boolean {
+        var flag = true;
+        if (sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY) == null) {
+            flag = false
+        }
+        return flag;
     }
+    override fun onSensorChanged(event: SensorEvent?) {
+        val values = event!!.values[0];
+        if (values <= 4) {
+            Toast.makeText(this, "You blocked the screen.", Toast.LENGTH_SHORT).show()
+        }
+    }
+    override  fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
+    }
+    private fun vibratesensor() {
+        val vibrator = this?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+        if (Build.VERSION.SDK_INT >= 26) {
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                vibrator.vibrate(
+                        VibrationEffect.createOneShot(
+                                2000,
+                                VibrationEffect.DEFAULT_AMPLITUDE
+                        )
+                )
+            }
+        }else{
+            vibrator.vibrate(2000)
+        }
+    }
+}
+
+

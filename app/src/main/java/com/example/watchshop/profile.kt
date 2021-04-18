@@ -40,12 +40,11 @@ class profile : AppCompatActivity() {
         icprofile = findViewById(R.id.icprofile)
         ichome = findViewById(R.id.ichome)
 
-//
-//        tvprofile.setOnClickListener {
-//            val intent = Intent(this, UpdateProfileActivity::class.java)
-//            startActivity(intent)
-//        }
 
+        tvprofile.setOnClickListener {
+            val intent = Intent(this, UpdateProfileActivity::class.java)
+            startActivity(intent)
+        }
 
 
         icwatch.setOnClickListener {
@@ -55,7 +54,7 @@ class profile : AppCompatActivity() {
         iccart.setOnClickListener {
             val intent = Intent(this, Cart::class.java)
             startActivity(intent)
-//        }
+        }
             icprofile.setOnClickListener {
                 val intent = Intent(this, profile::class.java)
                 startActivity(intent)
@@ -67,4 +66,3 @@ class profile : AppCompatActivity() {
 
         }
     }
-}

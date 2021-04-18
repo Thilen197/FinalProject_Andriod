@@ -65,12 +65,10 @@ class ProductAdapter(
         holder.tvmodel.text = product.model.toString()
         holder.tvprice.text = product.price.toString()
         holder.tvdescription.text = product.Description.toString()
+        val path =ServiceBuilder.loadImagePath()+product.watch_image;
 
-        product.watch_image?.let { img ->
-            Glide.with(context)
-                    .load(ServiceBuilder.loadImagePath() + img.split("\\").last())
-                    .into(holder.ivimage)
-        }
+
+     Glide.with(context).load(ServiceBuilder.loadImagePath()+product.watch_image).into(holder.ivimage);
 
 
         holder.btnDelete.setOnClickListener {

@@ -99,7 +99,6 @@
                 android:background="@drawable/drawable_textview"
                 android:gravity="top"
                 android:hint="Enter Description"
-                android:inputType="textPassword"
                 android:padding="8dp"
                 android:textColor="@color/black"
                 android:textColorHint="#bbb"

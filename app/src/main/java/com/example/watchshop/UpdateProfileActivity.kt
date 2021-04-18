@@ -7,9 +7,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import com.example.watchshop.entity.Customer
-import com.example.watchshop.entity.Product
 import com.example.watchshop.repository.CustomerRepository
-import com.example.watchshop.repository.ProductRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -25,62 +23,85 @@ class UpdateProfileActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_update_profile)
+        etusername = findViewById(R.id.etusername)
+        etemail = findViewById(R.id.etemail)
+        etphone = findViewById(R.id.etphone)
+        btnupdateprofile = findViewById(R.id.btnupdateprofile)
 
-        etusername = findViewById(R.id.etname)
-        etemail = findViewById(R.id.etprice)
-        etphone = findViewById(R.id.etmodel)
-        btnupdateprofile = findViewById(R.id.btnupdateproduct)
+        loadConsumerData();
         btnupdateprofile.setOnClickListener {
-            updateprofile()
+            updateProfile()
         }
 
         val intent = intent
-        if (intent.extras != null) {
+        if(intent.extras!=null){
             val productid = intent.getStringExtra("id")
-            val pusername = intent.getStringExtra("username");
-            val pemail = intent.getStringExtra("email")
-            val pmobile = intent.getStringExtra("mobile")
+            val username = intent.getStringExtra("username");
+            val email=intent.getStringExtra("email")
+            val mobile=intent.getStringExtra("phone")
+            etusername.setText("$username")
+            etemail.setText("$email")
+            etphone.setText("$mobile")
+            id="$productid"
+        }
 
-            etusername.setText("$pusername")
-            etemail.setText("$pemail")
-            etphone.setText("$pmobile")
-            id = "$productid"
+    }
+    private fun loadConsumerData() {
+        CoroutineScope(Dispatchers.IO).launch {
+            val consumerRepo = CustomerRepository();
+            val response = consumerRepo.viewprofile();
+            if (response.success == true) {
+                withContext(Dispatchers.Main) {
+                    val data = response.data;
+                    if (data != null) {
+                        etusername.setText(data.username.toString());
+                        etemail.setText(data.email.toString());
+                        etphone.setText(data.mobile.toString());
+
+
+                    }
+                }
+
         }
     }
 
+    }
+    private fun updateProfile() {
+        var username = etusername.text.toString()
+        var email = etemail.text.toString()
+        var phone = etphone.text.toString()
 
-    private fun updateprofile() {
-        val username = etusername.text.toString()
-        val email = etemail.text.toString()
-        val phone = etphone.text.toString()
-
-        val customer = Customer(
+        val Customer = Customer(
                 username = username,
-                email = email, mobile = phone
-
+                email = email,
+                mobile = phone
         )
+
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                val CustomerRepositoryRepository = CustomerRepository()
-                val response = CustomerRepository.viewprofile(id, customer)
+                val CustomerRepository= CustomerRepository()
+                val response = CustomerRepository.Updateprofile(Customer)
                 if (response.success == true) {
                     withContext(Dispatchers.Main) {
 
                         Toast.makeText(this@UpdateProfileActivity, "updated", Toast.LENGTH_SHORT).show()
 
-                        startActivity(Intent(this@UpdateProfileActivity, profile::class.java))
+                        startActivity(Intent(this@UpdateProfileActivity,Viewproduct::class.java))
                     }
-                } else {
+                }
+                else {
                     withContext(Dispatchers.Main) {
                         Toast.makeText(this@UpdateProfileActivity, "failed", Toast.LENGTH_SHORT)
                                 .show()
                     }
                 }
-            } catch (e: Exception) {
+            }
+            catch (e:Exception){
                 print(e)
             }
         }
-
+    }
     }
 
-}
+
+

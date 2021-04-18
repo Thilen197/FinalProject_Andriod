@@ -25,9 +25,18 @@ class CustomerRepository
         }
     }
 
-    suspend fun viewprofile(): GetProductResponse {
+    suspend fun viewprofile(): CustomerResponse {
         return apiRequest {
             userAPI.viewprofile()
         }
     }
+    suspend fun Updateprofile(Customer:Customer): CustomerResponse{
+        return apiRequest {
+            userAPI.updateprofile(ServiceBuilder.token!!,Customer)
+        }
+    }
+
+
+
+
 }

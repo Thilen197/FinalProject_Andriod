@@ -25,5 +25,14 @@ interface CustomerAPI {
     @GET("product/fetchall")
     suspend fun viewprofile(
 //            @Header("Authorization") token: String,
-    ):Response<GetProductResponse>
+    ):Response<CustomerResponse>
+
+    @PUT ("customer/update")
+    suspend fun updateprofile(
+            @Header("Authorization")token:String,
+            @Body customer:Customer
+
+    ):Response<CustomerResponse>
+
+
 }
