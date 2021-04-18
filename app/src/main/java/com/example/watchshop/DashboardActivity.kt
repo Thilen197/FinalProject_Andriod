@@ -18,6 +18,7 @@ class DashboardActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
 
+        supportActionBar?.setTitle("Dashboard")
 
         btnwatch = findViewById(R.id.btnwatch)
         mycart = findViewById(R.id.mycart)

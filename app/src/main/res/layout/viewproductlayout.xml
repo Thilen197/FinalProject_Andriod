@@ -10,7 +10,7 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:id="@+id/ivproductpic"
+            android:id="@+id/ivimage"
             android:layout_width="120dp"
             android:layout_height="150dp"
             android:scaleType="fitXY"
@@ -31,7 +31,7 @@
                     android:layout_width="100dp"
                     android:layout_marginLeft="10dp"
                     android:layout_height="24dp"
-                    android:textSize="16sp"
+                    android:textSize="20dp"
                     android:layout_marginTop="5dp"
                     android:textColor="@color/black"
                     android:text="Name:"/>
@@ -42,8 +42,8 @@
                     android:layout_height="23dp"
                     android:layout_marginTop="5dp"
                     android:text="Product Name"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="20dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -57,7 +57,7 @@
                     android:layout_width="100dp"
                     android:layout_marginLeft="10dp"
                     android:layout_height="24dp"
-                    android:textSize="16sp"
+                    android:textSize="20dp"
                     android:textColor="@color/black"
                     android:text="Rs."/>
 
@@ -66,9 +66,10 @@
                     android:layout_width="154dp"
                     android:layout_height="24dp"
                     android:layout_marginStart="8dp"
-                    android:textSize="16sp"
+                    android:textSize="20dp"
+                    android:textColor="@color/colorPrimary"
                     android:text="Price"
-                    android:textColor="@color/black"
+
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tvproductname" />
 
@@ -81,17 +82,18 @@
                     android:layout_width="100dp"
                     android:layout_marginLeft="10dp"
                     android:layout_height="24dp"
-                    android:textSize="16sp"
+                    android:textSize="20dp"
                     android:textColor="@color/black"
                     android:text="Model"/>
+
                 <TextView
                     android:id="@+id/tvmodel"
                     android:layout_width="154dp"
                     android:layout_height="24dp"
                     android:layout_marginStart="8dp"
-                    android:textSize="16sp"
+                    android:textSize="20dp"
+                    android:textColor="@color/colorPrimary"
                     android:text="Model"
-                    android:textColor="@color/black"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tvproductname" />
 
@@ -104,17 +106,19 @@
                     android:layout_width="100dp"
                     android:layout_marginLeft="10dp"
                     android:layout_height="24dp"
-                    android:textSize="16sp"
+                    android:textSize="20dp"
                     android:textColor="@color/black"
                     android:text="Description"/>
+
                 <TextView
                     android:id="@+id/tvdescription"
                     android:layout_width="154dp"
                     android:layout_height="24dp"
                     android:layout_marginStart="8dp"
-                    android:textSize="16sp"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="20dp"
                     android:text="Description"
-                    android:textColor="@color/black"
+
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tvproductname" />
 

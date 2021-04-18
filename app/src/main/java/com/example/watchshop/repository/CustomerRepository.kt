@@ -5,6 +5,7 @@ import com.example.watchshop.api.MyApiRequest
 import com.example.watchshop.api.ServiceBuilder
 import com.example.watchshop.entity.Customer
 import com.example.watchshop.response.CustomerResponse
+import com.example.watchshop.response.GetProductResponse
 import com.example.watchshop.response.LoginResponse
 
 class CustomerRepository
@@ -21,6 +22,12 @@ class CustomerRepository
     suspend fun checkCustomer(username:String,password:String): LoginResponse {
         return apiRequest {
             userAPI.checkcustomer(username,password)
+        }
+    }
+
+    suspend fun viewprofile(): GetProductResponse {
+        return apiRequest {
+            userAPI.viewprofile()
         }
     }
 }

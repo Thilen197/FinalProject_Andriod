@@ -1,7 +1,9 @@
 package com.example.watchshop.api
 
+import androidx.room.Delete
 import com.example.watchshop.entity.Product
 import com.example.watchshop.response.AddProductResponse
+import com.example.watchshop.response.DeleteProductResponse
 import com.example.watchshop.response.GetProductResponse
 import com.example.watchshop.response.ImageResponse
 import okhttp3.MultipartBody
@@ -16,16 +18,36 @@ interface ProductAPI {
         @Body product : Product
     ) : Response<AddProductResponse>
 
-    @GET("product/fetch")
+    @GET("product/fetchall")
     suspend fun getProduct(
 //            @Header("Authorization") token: String,
     ):Response<GetProductResponse>
 
-    @POST("/image")
+//Delete product
+
+    @DELETE("product/delete/{id}")
+    suspend fun deleteproduct(
+        @Header("Authorization") token: String,
+        @Path("id") id: String
+    ):Response<DeleteProductResponse>
+
+
+    @Multipart
+    @POST("image/{id}")
     suspend fun addImage(
         @Header("Authorization") token : String,
+        @Path ("id") id:String,
+        @Part file: MultipartBody.Part
+    ) : Response<ImageResponse>
+
+
+
+    @PUT("product_update/{id}")
+    suspend fun updateproduct(
+        @Path ("id")id: String,
         @Body product : Product
-    ) : Response<AddProductResponse>
+    ) : Response<DeleteProductResponse>
+
 
 
 
